@@ -1,4 +1,5 @@
 import Image from "next/image";
+import BuyOrRent from "./BuyOrRent";
 // import BuyOrRent from "./BuyRent";
 
 interface Book {
@@ -36,7 +37,7 @@ const BookDetails = ({book}: {book: Book}) => {
         <div className="text-xl mt-3 mb-5">
           <p>{book.genre} - {book.pages} pages - {book.stock ? `${book.stock} pieces are in stock` : `No Stock`}</p>
         </div>
-        {/* <BuyOrRent book={book}/> */}
+        <BuyOrRent book={book}/>
       </div>
     </div>
   )
