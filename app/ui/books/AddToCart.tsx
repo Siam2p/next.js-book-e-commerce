@@ -1,32 +1,21 @@
 'use client';
 
+import { StoreContext } from '@/app/context';
+import { Book } from '@/app/lib/fack-data';
 import { ShoppingCartIcon } from '@heroicons/react/24/solid'
+import { useContext } from 'react';
 import { toast } from 'react-toastify';
-
-
-interface Book {
-  id: string;
-  title: string;
-  description: string;
-  author: string;
-  cover: string;
-  genre: string;
-  pages: number;
-  isRented: boolean;
-  stock: number;
-  rentPrice: number;
-  sellPrice: number;
-  sold: number;
-  ISBN: string;
-  renterIds?: string[];
-}
 
 
 export default function AddToCart({book}: {book: Book}) {
 
+  const { cartData, setCartData } = useContext(StoreContext)!;
+  console.log(cartData);
+
   const handleCart = (e: React.MouseEvent<HTMLButtonElement>, reason: string) => {
     e.preventDefault();
-    const newData = {...book, action: reason};
+    const newData = {...book, type: reason};
+    setCartData([...cartData, newData])
     toast.success(`Added ${book.title} to the cart`, {
       autoClose: 1500,
       position: "top-right",

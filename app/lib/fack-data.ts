@@ -1,11 +1,11 @@
-interface User {
+export interface User {
   id: string;
   name: string;
   email: string;
   image_url: string;
 }
 
-interface Book {
+export interface Book {
   id: string;
   title: string;
   description: string;

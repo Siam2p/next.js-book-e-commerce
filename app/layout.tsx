@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ToastContainer } from "react-toastify";
+import Image from "next/image";
+import sincerelyImage from "@/public/home/sincerely.png";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,9 +28,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className={` min-h-screen relative`}>
         {children}
         <ToastContainer/>
+        <Link href='https://github.com/Siam2p' target="__blank">
+        <Image
+        className="absolute w-10 md:w-15 opacity-50 bottom-0 right-0 cursor-pointer select-none"
+        src={sincerelyImage}
+        alt="My Since"
+        sizes="100"
+        style={{ objectFit: "cover", zIndex: 10}}
+      />
+        </Link>
       </body>
     </html>
   );

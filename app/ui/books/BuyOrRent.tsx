@@ -1,27 +1,19 @@
 'use client'
-
-interface Book {
-  id: string;
-  title: string;
-  description: string;
-  author: string;
-  cover: string;
-  genre: string;
-  pages: number;
-  isRented: boolean;
-  stock: number;
-  rentPrice: number;
-  sellPrice: number;
-  sold: number;
-  ISBN: string;
-  renterIds?: string[];
-}
+import { StoreContext } from "@/app/context";
+import { Book } from "@/app/lib/fack-data";
+import { useContext } from "react";
+import { useRouter} from "next/navigation";
 
 const BuyOrRent = ({book}: {book: Book}) => {
 
+  const {setCartData} = useContext(StoreContext)!;
+  const router = useRouter();
+
   const handleCart = (e: React.MouseEvent<HTMLButtonElement>, reason: string) => {
     e.preventDefault();
-    const newData = {...book, action: reason};
+    const newData = {...book, type: reason};
+    setCartData((prevCartData) => [...prevCartData, newData]);
+    router.push('/store/cart')
   }
 
   return(

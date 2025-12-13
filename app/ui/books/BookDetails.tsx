@@ -1,25 +1,10 @@
 import Image from "next/image";
 import BuyOrRent from "./BuyOrRent";
+import { Book } from "@/app/lib/fack-data";
 // import BuyOrRent from "./BuyRent";
 
-interface Book {
-  id: string;
-  title: string;
-  description: string;
-  author: string;
-  cover: string;
-  genre: string;
-  pages: number;
-  isRented: boolean;
-  stock: number;
-  rentPrice: number;
-  sellPrice: number;
-  sold: number;
-  ISBN: string;
-  renterIds?: string[];
-}
-
 const BookDetails = ({book}: {book: Book}) => {
+
   return(
     <div className="p-2 flex flex-col items-center">
       <div className="mb-2">

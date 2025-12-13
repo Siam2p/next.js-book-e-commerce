@@ -2,24 +2,7 @@ import { ArchiveBoxIcon, ArchiveBoxXMarkIcon, CurrencyBangladeshiIcon } from "@h
 import Image from "next/image";
 import Link from "next/link";
 import AddToCart from "./AddToCart";
-
-
-interface Book {
-  id: string;
-  title: string;
-  description: string;
-  author: string;
-  cover: string;
-  genre: string;
-  pages: number;
-  isRented: boolean;
-  stock: number;
-  rentPrice: number;
-  sellPrice: number;
-  sold: number;
-  ISBN: string;
-  renterIds?: string[];
-}
+import { Book } from "@/app/lib/fack-data";
 
 export default function BookCard({
   book,
