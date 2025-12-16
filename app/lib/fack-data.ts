@@ -20,6 +20,7 @@ export interface Book {
   sold: number;
   ISBN: string;
   renterIds?: string[];
+  type?: string;
 }
 
 const users: User[] = [
