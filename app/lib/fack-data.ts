@@ -21,6 +21,7 @@ export interface Book {
   ISBN: string;
   renterIds?: string[];
   type?: string;
+  quantity?: number;
 }
 
 const users: User[] = [
